@@ -21,8 +21,8 @@ static void stringify(char* buf, char* value) {
     for (i = 0; value[i] != 0; i++) {
       switch(value[i])
       {
-        case '"':  buf += sprintf(buf, "\\\""); break;
-        case '\\': buf += sprintf(buf, "\\\\"); break;
+        case '"':
+        case '\\': buf += sprintf(buf, "\\%c", value[i]); break;
         case '\b': buf += sprintf(buf, "\\b");  break;
         case '\f': buf += sprintf(buf, "\\f");  break;
         case '\n': buf += sprintf(buf, "\\n");  break;
