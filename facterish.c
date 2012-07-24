@@ -23,7 +23,6 @@ static void stringify(char* buf, char* value) {
       {
         case '"':  buf += sprintf(buf, "\\\""); break;
         case '\\': buf += sprintf(buf, "\\\\"); break;
-        case '/' : buf += sprintf(buf, "\\/");  break;
         case '\b': buf += sprintf(buf, "\\b");  break;
         case '\f': buf += sprintf(buf, "\\f");  break;
         case '\n': buf += sprintf(buf, "\\n");  break;
@@ -136,7 +135,7 @@ void _facter_null_value(char* buf) {
 }
 
 void _facter_complex_string_value(char* buf) {
-  stringify(buf, "\"\\\/\b\f\n\r\t");
+  stringify(buf, "\"\\/\b\f\n\r\t");
 }
 
 void _facter_array_value(char* buf) {
