@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <sys/utsname.h>
 
-#define print(Buffer, String)  if (Buffer == stdout) { fprintf(Buffer, "%s", String); } else { (Buffer += sprintf(Buffer, "%s", String)); }
+#define print(B,S) (B==stdout)&&fprintf(B,"%s",S)||(B += sprintf(B,"%s",S));
 
 /** JSON Utilities **/
 
